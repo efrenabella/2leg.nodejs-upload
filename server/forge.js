@@ -63,7 +63,7 @@ function uploadToOSS(fileName, filePath, req, res) {
   var t = new token();
   t.getTokenInternal(function (tokenInternal) {
 
-    var ossBucketKey = 'abc' + Date.now();
+    var ossBucketKey = 'tunnel_a' + Date.now();
     var ossObjectName = fileName;
 
     //
@@ -74,7 +74,7 @@ function uploadToOSS(fileName, filePath, req, res) {
     var objects = new ForgeOSS.ObjectsApi();
     var postBuckets = new ForgeOSS.PostBucketsPayload();
     postBuckets.bucketKey = ossBucketKey;
-    postBuckets.policyKey = "transient"; // expires in 24h
+    postBuckets.policyKey = "persistent"; // expires in 24h
 
     // promise will treat 409 as error, but let's handle it
     buckets.createBucket(postBuckets, null, function (err, data, response) {
