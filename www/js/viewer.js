@@ -37,7 +37,9 @@ function launchViewer(div, urn) {
       loadDocument(options.document);
     }
   );
-  viewer.search("GA_Cracks",OnSearchSuccess,OnSearchError);
+  var searchPropList = new Array('DELIM_Elem_Name');
+  //var id = model.getModelId();
+  viewer.search('1',OnSearchSuccess,OnSearchError);
 }
 
 function OnSearchSuccess(srch){
@@ -45,7 +47,7 @@ function OnSearchSuccess(srch){
 }
 
 function OnSearchError(err){
-    console.log("Error in OnSearchError() : " + srch);
+    console.error("Error in OnSearchError() : " + err);
 }
 
 function loadDocument(documentId){
