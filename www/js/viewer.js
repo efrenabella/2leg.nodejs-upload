@@ -50,7 +50,7 @@ function loadDocument(documentId){
       }, true);
       if (geometryItems.length > 0) {
         geometryItems.forEach(function (item, index) {
-          /*
+          
           // WIP, show viewables
           var v = $('<input type="button" value="' + item.name + '" class="btn btn-primary btn-xs"/>&nbsp;');
           v.click(function () {
@@ -58,7 +58,7 @@ function loadDocument(documentId){
             viewer.load(doc.getViewablePath(geometryItems[index]));
           });
           $('#viewables').append(v);
-          */
+          *
         });
         viewer.load(doc.getViewablePath(geometryItems[0])); // show 1st view on this document...
         viewer.loadExtension('Autodesk.ADN.Viewing.Extension.MyExtension', '');
