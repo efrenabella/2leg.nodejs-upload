@@ -37,6 +37,15 @@ function launchViewer(div, urn) {
       loadDocument(options.document);
     }
   );
+  viewer.search("GA_Cracks",OnSearchSuccess,OnSearchError);
+}
+
+function OnSearchSuccess(srch){
+    console.log("Error in OnSearchError() : " + srch);
+}
+
+function OnSearchError(err){
+    console.log(srch);
 }
 
 function loadDocument(documentId){
