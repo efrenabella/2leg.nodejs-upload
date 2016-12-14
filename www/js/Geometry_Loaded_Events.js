@@ -27,24 +27,27 @@ function afterViewerEvents(viewer, events, onAfter) {
 function parseModelStructure(viewer, node) {
 
   var children = [];
-
-  if(node.children) {
-
-    node.children.forEach(function (child) {
-
-      var newNode = {
-        name: child.name,
-        dbId: child.dbId,
-        material: null
-      };
-
-      children.push(newNode);
-
-      newNode.children = parseModelStructure(
-        viewer, child);
-    });
+  if (node === undefined || node === null) {
+       // do nothing 
   }
+  else {
+    if(node.children) {
 
+      node.children.forEach(function (child) {
+
+        var newNode = {
+          name: child.name,
+          dbId: child.dbId,
+          material: null
+        };
+
+        children.push(newNode);
+
+        newNode.children = parseModelStructure(
+          viewer, child);
+      });
+    } 
+  }
   return children;
 }
 
