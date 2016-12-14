@@ -39,7 +39,7 @@ function launchViewer(div, urn) {
   );
   var searchPropList = new Array('DELIM_Elem_Name');
   //var id = model.getModelId();
-  viewer.search('1',OnSearchSuccess,OnSearchError);
+  viewer.search('1',OnSearchSuccess,OnSearchError, searchPropList);
 }
 
 function OnSearchSuccess(srch){
@@ -47,7 +47,8 @@ function OnSearchSuccess(srch){
 }
 
 function OnSearchError(err){
-    console.error("Error in OnSearchError() : " + err);
+    console.log("Error in OnSearchError() " );
+    console.log(err);
 }
 
 function loadDocument(documentId){
