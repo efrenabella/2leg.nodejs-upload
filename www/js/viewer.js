@@ -58,7 +58,7 @@ function loadDocument(documentId){
             viewer.load(doc.getViewablePath(geometryItems[index]));
           });
           $('#viewables').append(v);
-          *
+          
         });
         viewer.load(doc.getViewablePath(geometryItems[0])); // show 1st view on this document...
         viewer.loadExtension('Autodesk.ADN.Viewing.Extension.MyExtension', '');
