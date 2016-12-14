@@ -41,11 +41,11 @@ function launchViewer(div, urn) {
 }
 
 function OnSearchSuccess(srch){
-    console.log("Error in OnSearchError() : " + srch);
+    console.log(srch);
 }
 
 function OnSearchError(err){
-    console.log(srch);
+    console.log("Error in OnSearchError() : " + srch);
 }
 
 function loadDocument(documentId){
