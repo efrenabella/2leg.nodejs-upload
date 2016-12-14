@@ -29,7 +29,7 @@ function launchViewer(div, urn) {
 
   var viewerElement = document.getElementById(div);
   viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerElement, {});
-  testEvents(viewer);
+  //testEvents(viewer);
   Autodesk.Viewing.Initializer(
     options,
     function () {
