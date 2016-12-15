@@ -40,6 +40,7 @@ function launchViewer(div, urn) {
   var searchPropList = new Array('displayName');//'DELIM_Elem_Name');
   //var id = model.getModelId();
   //viewer.search('1',OnSearchSuccess,OnSearchError, searchPropList); 
+  viewer.getObjectTree(onObjTreeSuccess,onObjTreeError);
 }
 
 function onObjTreeSuccess(dat){
@@ -109,5 +110,4 @@ function loadDocument(documentId){
       console.log(errorMsg);
     }
   )
-  viewer.getObjectTree(onObjTreeSuccess,onObjTreeError);
 }
