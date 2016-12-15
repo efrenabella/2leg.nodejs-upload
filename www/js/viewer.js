@@ -39,40 +39,38 @@ function launchViewer(div, urn) {
   );
   var searchPropList = new Array('displayName');//'DELIM_Elem_Name');
   //var id = model.getModelId();
-  //viewer.search('1',OnSearchSuccess,OnSearchError, searchPropList);
-  viewer.getObjectTree(onObjTreeSuccess,onObjTreeError);
-  
+  //viewer.search('1',OnSearchSuccess,OnSearchError, searchPropList); 
 }
 
-		function onObjTreeSuccess(dat){
-			console.log(dat);
-			var childrn = dat.nodeAccess.children;
-			//console.log(childrn);
-			var ids = dat.nodeAccess.dbIdToIndex;
-			
-			viewer.getProperties(ids[2],OnGetProperties_ofOne_Success,OnGetProperties_ofOne_Error);
-			var queue = Object.values(ids);
-			console.log(queue);
-			for (var n = 0; n < queue.length; n++){
-				//console.log(queue[n]);
-				viewer.getProperties(queue[n],OnGetProperties_ofOne_Success,OnGetProperties_ofOne_Error);
-			}
-		}
-		function onObjTreeError(objTreeError){
-			console.log('onObjTreeError() - errorCode:' + objTreeError);
-		}
-		function OnGetProperties_ofOne_Success(props){
-			console.log(props);
-			//if(props.name.contains("Cracks") ) {
-				//console.log(props.name);
-			//}
-			//for(var j = 0; j < props.length; j++){
-				
-			//}
-		}
-		function OnGetProperties_ofOne_Error(err){
-			console.log('OnGetProperties_ofOne_Error() - errorCode:' + err);
-		}
+function onObjTreeSuccess(dat){
+	console.log(dat);
+	var childrn = dat.nodeAccess.children;
+	//console.log(childrn);
+	var ids = dat.nodeAccess.dbIdToIndex;
+
+	viewer.getProperties(ids[2],OnGetProperties_ofOne_Success,OnGetProperties_ofOne_Error);
+	var queue = Object.values(ids);
+	console.log(queue);
+	for (var n = 0; n < queue.length; n++){
+		//console.log(queue[n]);
+		viewer.getProperties(queue[n],OnGetProperties_ofOne_Success,OnGetProperties_ofOne_Error);
+	}
+}
+function onObjTreeError(objTreeError){
+	console.log('onObjTreeError() - errorCode:' + objTreeError);
+}
+function OnGetProperties_ofOne_Success(props){
+	console.log(props);
+	//if(props.name.contains("Cracks") ) {
+		//console.log(props.name);
+	//}
+	//for(var j = 0; j < props.length; j++){
+
+	//}
+}
+function OnGetProperties_ofOne_Error(err){
+	console.log('OnGetProperties_ofOne_Error() - errorCode:' + err);
+}
 function OnSearchSuccess(srch){
     console.log(srch);
 }
@@ -111,4 +109,5 @@ function loadDocument(documentId){
       console.log(errorMsg);
     }
   )
+  viewer.getObjectTree(onObjTreeSuccess,onObjTreeError);
 }
