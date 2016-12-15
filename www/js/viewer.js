@@ -37,7 +37,7 @@ function launchViewer(div, urn) {
       loadDocument(options.document);
     }
   );
-  var searchPropList = new Array('DELIM_Elem_Name');
+  var searchPropList = new Array('displayName');//'DELIM_Elem_Name');
   //var id = model.getModelId();
   viewer.search('1',OnSearchSuccess,OnSearchError, searchPropList);
 }
@@ -47,7 +47,7 @@ function OnSearchSuccess(srch){
 }
 
 function OnSearchError(err){
-    console.log("Error in OnSearchError() " );
+    //console.log("Error in OnSearchError() " );
     console.log(err);
 }
 
